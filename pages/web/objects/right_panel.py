@@ -3,8 +3,6 @@ from utils.common_imports import By, BaseObject, Logger, webdriver, WebElement, 
 class RightPanel(BaseObject):
     logger = Logger.get_logger(__name__)
     
-    __buy_button_locator = (By.XPATH, ".//div[@data-testid = 'trade-button-order-buy']")
-    __sell_button_locator = (By.XPATH, ".//div[@data-testid = 'trade-button-order-sell']")
     __order_type_dropdown_locator = (By.XPATH, ".//div[@data-testid = 'trade-dropdown-order-type']")
     
     def __init__(self, driver: webdriver, element: WebElement):
@@ -15,5 +13,3 @@ class RightPanel(BaseObject):
         RightPanel.logger.debug("Retrieving current Order Type value")
         order_type_dropdown_element = super()._find_nested_element(RightPanel.__order_type_dropdown_locator)
         return order_type_dropdown_element.text if order_type_dropdown_element else None
-    
-    

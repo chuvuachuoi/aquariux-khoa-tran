@@ -1,3 +1,4 @@
+from abc import abstractmethod
 from utils.common_imports import BaseElement, Logger, webdriver, WebElement, By
 
 class BaseObject(BaseElement):
@@ -37,3 +38,7 @@ class BaseObject(BaseElement):
         BaseObject.logger.debug(f"Clicking nested element with locator: {locator} in parent element: {self._element}")
         element = self._find_nested_element(locator)
         element.click()
+    
+    @abstractmethod
+    def _wait_for_readiness(self):
+        return super()._wait_for_readiness()
